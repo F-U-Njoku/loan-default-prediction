@@ -1,2 +1,5 @@
-# loan-default-prediction
-An application to predict if a bank customer would default or not if given a loan.
+# Loan Default Prediction
+
+<p align="center">
+  <img src="./images/erd.png.webp" alt="Entity Relationship Diagram.">
+</p>
