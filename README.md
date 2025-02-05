@@ -49,11 +49,18 @@ Given three separate datasets, the first step was merging, unifying, and creatin
 The first part (*Data Ingestion*) of the ```notebook.ipynb``` notebook  focuses on data preprocessing.
 
 ## Exploratory Data Analysis
-Once the dataset is in good shape, the next step is EDA to ensure the quality of the data and extract preliminary insights into the problem. Below are plots that convey some insights from the EDA, followed by a summary of observations.
+Once the dataset is in good shape, the next step is EDA to ensure the quality of the data and extract preliminary insights into the problem. Below are plots that convey some insights from the EDA.
+<div align="center">
+	<img width = "47%" src="./images/target.png" alt="target">
+	<img width = "49%" src="./images/account.png" alt="account type">
+</div>
+
+<div align="center">
+  <img src="./images/numerical.png" alt="Numerical features.">
+</div>
 
 
-
-### Observations:
+### EDA Observations:
 - There is a class imbalance, with the majority(76%) of the instances in the dataset being good while a minority(24%) is bad.
 - With the class imbalance, metrics like AUC, recall, and F1 are more suitable.
 - Most loans are low amounts (10,000 naira) and for 30 days.
@@ -63,20 +70,31 @@ Once the dataset is in good shape, the next step is EDA to ensure the quality of
  
 The second part (*Exploratory Data Analysis*) of the ```notebook.ipynb``` notebook  focuses on EDA.
 
-
-
-
 ## Model Selection
-For this project, eight regression algorithms were compared before selecting a final one. They are:
+For this project, nine regression algorithms were compared before selecting a final one. They are:
+- Logistic regression with lasso regularization
+- Support vector machine
+- Stochastic gradient descent
+- KNearest Neighbour
+- Naive Bayes
+- Decision Tree
+- Random Forest
+- Gradient Boosting
+- XGBoost
+  
+### Test
+<div align="center">
+	<img width = "48%" src="./images/test_auc.png" alt="test auc">
+	<img width = "48%" src="./images/test_acc.png" alt="test accuracy">
+</div>
 
-  - Linear Regression
-  - Ridge Regression
-  - Lasso Regression
-  - Elastic Net
-  - Decision Tree Regression
-  - Random Forest Regression
-  - XGBoost
-  - K-Nearest Neighbors Regression
+### Validation
+<div align="center">
+	<img width = "48%" src="./images/val_auc.png" alt="validation auc">
+	<img width = "48%" src="./images/val_acc.png" alt="validation accuracy">
+</div>
+
+Based on the AUC and Accuracy scores, the XGBoost Classifier was the best-performing algorithm selected to build the final model. The code for the model selection is available in ```notebook.ipynb``` under the *Model Selection* section.
     
 ## Model Information
 
