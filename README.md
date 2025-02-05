@@ -94,17 +94,17 @@ For this project, nine regression algorithms were compared before selecting a fi
 	<img width = "48%" src="./images/val_acc.png" alt="validation accuracy">
 </div>
 
-Based on the AUC and Accuracy scores, the XGBoost Classifier was the best-performing algorithm selected to build the final model. The code for the model selection is available in ```notebook.ipynb``` under the *Model Selection* section.
+Based on the AUC and Accuracy scores, the XGBoost Classifier was the best-performing algorithm and is therefore selected to build the final model. The code for the model selection is available in ```notebook.ipynb``` under the *Model Selection* section.
     
 ## Model Information
 
 - **Algorithm**: XGBoost Classifier
-- **Features**: 
-- **Target Variable**: 
-- **Model Performance**: 
+- **Features**: ```totaldue, termdays, loannumber_max, totaldue_min, termdays_min, first_payment_default_sum, longitude_gps, latitude_gps, age, is_GT Bank, is_First Bank, is_Access_Diamond, is_UBA, is_Zenith Bank,
+is_Permanent, is_Self-Employed, bank_account_num ```
+- **Target Variable**: ```good_bad_flag```
+- **Model Performance**: ```AUC```: 0.64 and ```Accuracy```: 0.79
 
 ## Dependencies
-
 - Python 3.11
 - scikit-learn
 - numpy
