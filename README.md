@@ -16,6 +16,7 @@
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Model Selection](#model-selection)
 - [Technical Architecture](#technical-architecture)
+- [Dependencies](#dependencies)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [Acknowledgements](#acknowledgements)
@@ -94,22 +95,79 @@ For this project, nine regression algorithms were compared before selecting a fi
 	<img width = "48%" src="./images/val_acc.png" alt="validation accuracy">
 </div>
 
-Based on the AUC and Accuracy scores, the XGBoost Classifier was the best-performing algorithm selected to build the final model. The code for the model selection is available in ```notebook.ipynb``` under the *Model Selection* section.
+Based on the AUC and Accuracy scores, the XGBoost Classifier was the best-performing algorithm and was therefore selected to build the final model. The code for the model selection is available in ```notebook.ipynb``` under the *Model Selection* section.
     
-## Model Information
+### Model Information
 
 - **Algorithm**: XGBoost Classifier
-- **Features**: 
-- **Target Variable**: 
-- **Model Performance**: 
+- **Features**: ```totaldue, termdays, loannumber_max, totaldue_min, termdays_min, first_payment_default_sum, longitude_gps, latitude_gps, age, is_GT Bank, is_First Bank, is_Access_Diamond, is_UBA, is_Zenith Bank,
+is_Permanent, is_Self-Employed, bank_account_num ```
+- **Target Variable**: ```good_bad_flag```
+- **Model Performance**: ```AUC```: 0.64 and ```Accuracy```: 0.79
+  
+## Technical Architecture
+- **App Framework**: Streamlit
+- **ML Framework**: Scikit-learn
+- **Model**: XGBoost Classifier (```max_depth```=5, ```n_estimators```=400, ```min_child_weight```: 4, ```gamma```: 0.1)
+- **Deployment**: Streamlit
+- **API Protocol**: REST
+- **Input/Output**: JSON
 
 ## Dependencies
-
 - Python 3.11
 - scikit-learn
 - numpy
 - pandas
 - Streamlit
+- plotly
+
+## Deployment
+The usecase for this model focuses on **existing customers** with previous loan history and aggregating this previous loans data is part of the features used to train the model. So in other to test the model, what is needed is the ```customerid``` for which the ```test.py``` script will fetch the associated demographic and previous loan data, preprocess and then make a prediction. Find test customerid's in the ```testperf.csv``` in the data folder.
+
+### Local
+1. Clone the repository:
+```bash
+git clone https://github.com/F-U-Njoku/loan-default-prediction
+cd loan-default-prediction
+```
+
+2. Install dependencies using Pipenv:
+```bash
+pip install pipenv
+pipenv install
+```
+
+3. Run the application:
+```bash
+pipenv run streamlit run app.py
+```
+
+4. Use the application:
+   
+Try some of these customerids:
+- ```8a858f5b5bee1b11015bf1b4ffea5abb```
+- ```8a858f3e5885ffa301588ccdf1b437ef```
+- ```8a858f305c8dd672015c93b1db645db4```
+
+#### Docker 
+
+1. Build the Docker image:
+```bash
+docker build -t loan-default-app .
+```
+
+2. Run the container:
+```bash
+docker run -p 8501:8501 loan-default-app
+```
+
+3. Use the application:
+
+Now, visit ```http://localhost:8501``` in your browser to access your Streamlit app
+
+### Cloud
+
+To use the app on the cloud visit the [Streamlit website]() where the model is deployed and try the above sample customerids.
 
 ## Contributing
 
