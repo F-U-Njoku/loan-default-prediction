@@ -167,7 +167,7 @@ Now, visit ```http://localhost:8501``` in your browser to access your Streamlit 
 
 ### Cloud
 
-To use the app on the cloud visit the [Streamlit website]() where the model is deployed and try the above sample customerids.
+To use the app on the cloud visit the [Streamlit website](https://loan-default-prediction-xgboost.streamlit.app/) where the model is deployed and try the above sample customerids.
 
 ## Contributing
 
