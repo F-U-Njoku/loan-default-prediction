@@ -144,10 +144,13 @@ pipenv run streamlit run app.py
 
 4. Use the application:
    
-Try some of these customerids:
+Try some of these customer IDs:
 - ```8a858f5b5bee1b11015bf1b4ffea5abb```
 - ```8a858f3e5885ffa301588ccdf1b437ef```
+- ```8a858faf56b7821c0156cdaa248222fd```
 - ```8a858f305c8dd672015c93b1db645db4```
+- ```8a8589c253ace09b0153af6ba58f1f31```
+- ```8a858e225a28c713015a30db5c48383d```
 
 #### Docker 
 
@@ -163,11 +166,11 @@ docker run -p 8501:8501 loan-default-app
 
 3. Use the application:
 
-Now, visit ```http://localhost:8501``` in your browser to access your Streamlit app
+Now, visit ```http://localhost:8501``` in your browser to access your Streamlit app.
 
 ### Cloud
 
-To use the app on the cloud visit the [Streamlit website](https://loan-default-prediction-xgboost.streamlit.app/) where the model is deployed and try the above sample customerids.
+To use the app on the cloud, visit the [Streamlit website](https://loan-default-prediction-xgboost.streamlit.app/), where the model is deployed and try the above sample customer IDs.
 
 ## Contributing
 
