@@ -123,9 +123,7 @@ def train(X, y):
     print(f"Accuracy: {accuracy:.2f}")
     print(f"AUC: {auc:.2f}")
     
-    # Save the model
-    model.save_model("xgboost_model.json")
-    print("Model saved to xgboost_model.json")
+    return model
 
 def main():
     # Load and preprocess data
@@ -143,10 +141,11 @@ def main():
     print(X.dtypes)
     
     # Train and save model
-    output_file = "model_3_4_01_bin"
+    output_file = "model_5_4_100_01.bin"
     model = train(X, y)
     with open(output_file, "wb") as f:
         pickle.dump(model, f)
+    print("Model saved to model_5_4_100_01.bin")
 
 if __name__ == "__main__":
     main()
